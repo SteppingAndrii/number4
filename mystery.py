@@ -6,28 +6,43 @@
 # print(next(iterator))
 
 
-class Counter:
-    def __init__(self, max_number):
-        self.i = 0
-        return self
+# class Counter:
+#     def __init__(self, max_number):
+#         self.i = 0
+#         return self
 
-    def __iter__(self):
-        self.i = 0
-        return self
+#     def __iter__(self):
+#         self.i = 0
+#         return self
 
-    def __next__(self):
-        self.i += 1
-        if self.i > self.max_number:
-            raise StopIteration
-        return self.i
-count = Counter(5)
+#     def __next__(self):
+#         self.i += 1
+#         if self.i > self.max_number:
+#             raise StopIteration
+#         return self.i
+# count = Counter(5)
 
-try:
-    print(count.__next__)
-    print(count.__iter__)
+# try:
+#     print(count.__next__)
+#     print(count.__iter__)
 
-    print(next(count))
-    print(iter(count))
-    print(next(count))
-except StopIteration:
-    print("Counter has reached her limit")
+#     print(next(count))
+#     print(iter(count))
+#     print(next(count))
+# except StopIteration:
+#     print("Counter has reached her limit")
+
+
+def raise_to_the_degrees(number, max_number):
+    i = 0
+    # while True:
+    #     yield number **i
+    #     i += 1
+    
+    for _ in range(max_number):
+        yield number ** i
+        i += 1
+res = raise_to_the_degrees(10,10)
+print(res)
+for _ in res:
+    print(_)
